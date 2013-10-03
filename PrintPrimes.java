@@ -3,15 +3,15 @@ public class PrintPrimes {
   int RR;
   int CC;
   int WW;
-  int ORDMAX;
+  int primeIndexMax;
   int listOfPrimes[];
 
-  public PrintPrimes(int numberOfPrimes, int RR, int CC, int WW, int ORDMAX) {
+  public PrintPrimes(int numberOfPrimes, int RR, int CC, int WW, int primeIndexMax) {
     this.numberOfPrimes   = numberOfPrimes;
     this.RR  = RR;
     this.CC  = CC;
     this.WW  = WW;
-    this.ORDMAX = ORDMAX;
+    this.primeIndexMax = primeIndexMax;
     this.listOfPrimes = new int[numberOfPrimes + 1];
   }
 
