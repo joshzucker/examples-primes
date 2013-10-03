@@ -39,13 +39,13 @@ public class PrintPrimes {
 
       int currentNum = 1;
       int primeIndex = 2;
-      int Square = 9;
+      int primeSquared = 9;
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
           currentNum = currentNum + 2;
-          if (currentNum == Square) {
-            Square = listOfPrimes[primeIndex] * listOfPrimes[primeIndex];
+          if (currentNum == primeSquared) {
+            primeSquared = listOfPrimes[primeIndex] * listOfPrimes[primeIndex];
             MULT[primeIndex] = currentNum;
             primeIndex ++;
           }
