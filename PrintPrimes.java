@@ -37,29 +37,29 @@ public class PrintPrimes {
       int N;
       int MULT[] = new int[ORDMAX + 1];
 
-      int J = 1;
+      int currentNum = 1;
       int ORD = 2;
       int SQUARE = 9;
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
-          J = J + 2;
-          if (J == SQUARE) {
+          currentNum = currentNum + 2;
+          if (currentNum == SQUARE) {
             ORD = ORD + 1;
             SQUARE = listOfPrimes[ORD] * listOfPrimes[ORD];
-            MULT[ORD - 1] = J;
+            MULT[ORD - 1] = currentNum;
           }
           N = 2;
           JPRIME = true;
           while (N < ORD && JPRIME) {
-            while (MULT[N] < J)
+            while (MULT[N] < currentNum)
               MULT[N] = MULT[N] + listOfPrimes[N] + listOfPrimes[N];
-            if (MULT[N] == J)
+            if (MULT[N] == currentNum)
               JPRIME = false;
             N = N + 1;
           }
         } while (!JPRIME);
-        listOfPrimes[primesFoundSoFar] = J;
+        listOfPrimes[primesFoundSoFar] = currentNum;
       }
     }
 
