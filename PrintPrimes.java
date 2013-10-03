@@ -35,23 +35,23 @@ public class PrintPrimes {
   private void calculateOddPrimes() {
       boolean numIsPrime;
       int N;
-      int MULT[] = new int[ORDMAX + 1];
+      int MULT[] = new int[primeIndexMax + 1];
 
       int currentNum = 1;
-      int ORD = 2;
+      int primeIndex = 2;
       int SQUARE = 9;
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
           currentNum = currentNum + 2;
           if (currentNum == SQUARE) {
-            ORD = ORD + 1;
-            SQUARE = listOfPrimes[ORD] * listOfPrimes[ORD];
-            MULT[ORD - 1] = currentNum;
+            primeIndex = primeIndex + 1;
+            SQUARE = listOfPrimes[primeIndex] * listOfPrimes[primeIndex];
+            MULT[primeIndex - 1] = currentNum;
           }
           N = 2;
           numIsPrime = true;
-          while (N < ORD && numIsPrime) {
+          while (N < primeIndex && numIsPrime) {
             while (MULT[N] < currentNum)
               MULT[N] = MULT[N] + listOfPrimes[N] + listOfPrimes[N];
             if (MULT[N] == currentNum)
