@@ -45,7 +45,7 @@ public class PrintPrimes {
         do {
           currentNum = currentNum + 2;
           if (currentNum == primeSquared) {
-            primeIndex = primeIndex + 1;
+            primeIndex ++
             primeSquared = listOfPrimes[primeIndex] * listOfPrimes[primeIndex];
             MULT[primeIndex - 1] = currentNum;
           }
