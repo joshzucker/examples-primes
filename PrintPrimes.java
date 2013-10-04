@@ -30,8 +30,8 @@ public class PrintPrimes {
 
   private void calculateOddPrimes() {
       boolean numIsPrime;
-      int N;
-      int MULT[] = new int[numberOfPrimes/10 + 1];
+      int multIndex;
+      int oddMultiples[] = new int[numberOfPrimes/10 + 1];
 
       int currentNum = 1;
       int primeIndex = 2;
@@ -42,17 +42,17 @@ public class PrintPrimes {
           currentNum = currentNum + 2;
           if (currentNum == primeSquared) {
             primeSquared = listOfPrimes[primeIndex] * listOfPrimes[primeIndex];
-            MULT[primeIndex] = currentNum;
+            oddMultiples[primeIndex] = currentNum;
             primeIndex ++;
           }
-          N = 2;
+          oddMultipleIndex= 2;
           numIsPrime = true;
-          while (N < primeIndex && numIsPrime) {
-            while (MULT[N] < currentNum)
-              MULT[N] = MULT[N] + listOfPrimes[N] + listOfPrimes[N];
-            if (MULT[N] == currentNum)
+          while (multIndex < primeIndex && numIsPrime) {
+            while (oddMultiples[multIndex] < currentNum)
+              oddMultiples[multIndex] = oddMultiples[multIndex] + listOfPrimes[multIndex] + listOfPrimes[multIndex] 
+            if (oddMultiples[multIndex] == currentNum)
               numIsPrime = false;
-            N = N + 1;
+            multIndex = multIndex + 1;
           }
         } while (!numIsPrime);
         listOfPrimes[primesFoundSoFar] = currentNum;
