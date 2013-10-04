@@ -38,19 +38,23 @@ public class PrintPrimes {
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
-           currentNum = currentNum + 2;
-            if (currentNum == primeSquared) {
-             primeSquared = listOfPrimes[primeIndex] * listOfPrimes[primeIndex];
-             oddMultiples[primeIndex] = currentNum;
+          // go to the next odd number
+           currentNum = currentNum + 2;		
+            if (currentNum == primeSquared) { 		// If the current number is equal to the last prime squared
+             primeSquared = listOfPrimes[primeIndex] * listOfPrimes[primeIndex]; //calculate the next prime squared	
+             oddMultiples[primeIndex] = currentNum;	// list the current num as an odd multiple 
              primeIndex ++;
           }
           numIsPrime = true;
           
           for ( int multIndex =2; multIndex < primeIndex && numIsPrime; multIndex ++) {
+         	
             while (oddMultiples[multIndex] < currentNum)
               oddMultiples[multIndex] = oddMultiples[multIndex] + 2*listOfPrimes[multIndex];  
+           //  The integer would only be a multiple if after the addition it evaluates to itself.
             if (oddMultiples[multIndex] == currentNum)
-              numIsPrime = false;
+           //  If it is a multiple than it is not prime
+              numIsPrime = false; 
           }
         } while (!numIsPrime);
         listOfPrimes[primesFoundSoFar] = currentNum;
