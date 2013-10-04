@@ -49,7 +49,7 @@ public class PrintPrimes {
           numIsPrime = true;
           while (multIndex < primeIndex && numIsPrime) {
             while (oddMultiples[multIndex] < currentNum)
-              oddMultiples[multIndex] = oddMultiples[multIndex] + listOfPrimes[multIndex] + listOfPrimes[multIndex] 
+              oddMultiples[multIndex] = oddMultiples[multIndex] + 2*listOfPrimes[multIndex]  
             if (oddMultiples[multIndex] == currentNum)
               numIsPrime = false;
             multIndex = multIndex + 1;
