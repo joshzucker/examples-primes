@@ -29,30 +29,28 @@ public class PrintPrimes {
   }
 
   private void calculateOddPrimes() {
+      
       boolean numIsPrime;
-      int multIndex;
       int oddMultiples[] = new int[numberOfPrimes/10 + 1];
-
       int currentNum = 1;
       int primeIndex = 2;
       int primeSquared = 9;
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
-          currentNum = currentNum + 2;
-          if (currentNum == primeSquared) {
-            primeSquared = listOfPrimes[primeIndex] * listOfPrimes[primeIndex];
-            oddMultiples[primeIndex] = currentNum;
-            primeIndex ++;
+           currentNum = currentNum + 2;
+            if (currentNum == primeSquared) {
+             primeSquared = listOfPrimes[primeIndex] * listOfPrimes[primeIndex];
+             oddMultiples[primeIndex] = currentNum;
+             primeIndex ++;
           }
-          multIndex= 2;
           numIsPrime = true;
-          while (multIndex < primeIndex && numIsPrime) {
+          
+          for ( int multIndex =2; multIndex < primeIndex && numIsPrime; multIndex ++) {
             while (oddMultiples[multIndex] < currentNum)
               oddMultiples[multIndex] = oddMultiples[multIndex] + 2*listOfPrimes[multIndex];  
             if (oddMultiples[multIndex] == currentNum)
               numIsPrime = false;
-            multIndex++;
           }
         } while (!numIsPrime);
         listOfPrimes[primesFoundSoFar] = currentNum;
