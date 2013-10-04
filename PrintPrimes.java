@@ -2,20 +2,18 @@ public class PrintPrimes {
   int numberOfPrimes;
   int primesPerColumn;
   int columnsPerPage;
-  int primeIndexMax;
   int listOfPrimes[];
 
-  public PrintPrimes(int numberOfPrimes, int primesPerColumn, int columnsPerPage, int primeIndexMax) {
+  public PrintPrimes(int numberOfPrimes, int primesPerColumn, int columnsPerPage) {
     this.numberOfPrimes   = numberOfPrimes;
     this.primesPerColumn  = primesPerColumn;
     this.columnsPerPage  = columnsPerPage;
-    this.primeIndexMax = primeIndexMax;
     this.listOfPrimes = new int[numberOfPrimes + 1];
   }
 
 
   public static void main(String[] args) {
-      PrintPrimes printPrimes = new PrintPrimes(300, 50, 4,30);
+      PrintPrimes printPrimes = new PrintPrimes(300, 50, 4);
       printPrimes.calculatePrimes();
       printPrimes.printPrimes();
   }
@@ -33,7 +31,7 @@ public class PrintPrimes {
   private void calculateOddPrimes() {
       boolean numIsPrime;
       int N;
-      int MULT[] = new int[primeIndexMax + 1];
+      int MULT[] = new int[numberOfPrimes/10 + 1];
 
       int currentNum = 1;
       int primeIndex = 2;
