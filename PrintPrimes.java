@@ -45,14 +45,14 @@ public class PrintPrimes {
             oddMultiples[primeIndex] = currentNum;
             primeIndex ++;
           }
-          oddMultipleIndex= 2;
+          multIndex= 2;
           numIsPrime = true;
           while (multIndex < primeIndex && numIsPrime) {
             while (oddMultiples[multIndex] < currentNum)
-              oddMultiples[multIndex] = oddMultiples[multIndex] + 2*listOfPrimes[multIndex]  
+              oddMultiples[multIndex] = oddMultiples[multIndex] + 2*listOfPrimes[multIndex];  
             if (oddMultiples[multIndex] == currentNum)
               numIsPrime = false;
-            multIndex = multIndex + 1;
+            multIndex++;
           }
         } while (!numIsPrime);
         listOfPrimes[primesFoundSoFar] = currentNum;
